@@ -38,18 +38,20 @@
     .card { overflow: hidden; border: 1px solid #e9ede6; border-radius: 20px; background: white; transition: transform .2s, box-shadow .2s; }
     .card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px #234b3014; }
     .card img { display: block; width: 100%; height: 220px; object-fit: cover; background: var(--mint); }
+    .category-label { margin: 28px 0 14px; color: var(--green); font-size: 1.1rem; }
+    .category-label:first-child { margin-top: 0; }
+    .recipe-group-title { padding-bottom: 10px; border-bottom: 1px solid #dfe7dc; }
     .card-body { padding: 19px 20px 21px; }
     .tag { color: #54715d; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .card h3 { margin: 7px 0 7px; color: var(--deep); font-family: Georgia, serif; font-size: 1.4rem; line-height: 1.2; }
     .card p { margin: 0; color: var(--muted); font-size: .93rem; }
     .recipe { padding: 68px 24px; }
-    .recipe-layout { display: block; }
+    .recipe-layout { display: grid; gap: 48px; }
     .recipe-item { display: grid; grid-template-columns: .8fr 1.2fr; gap: 42px; align-items: start; margin-bottom: 48px; }
     .recipe-item:last-child { margin-bottom: 0; }
-    #receitas .recipe-intro { position: -webkit-sticky; position: sticky; top: 78px; align-self: start; z-index: 4; background: var(--cream); padding: 12px 14px; border-radius: 14px; }
-    #receitas .recipe-item { min-height: 100%; }
-    #receitas .recipe-box { align-self: stretch; }
+    #receitas .recipe-intro { align-self: start; }
     .recipe-intro p { color: var(--muted); }
+    .recipe-photo { display: block; width: 100%; max-height: 280px; margin: 14px 0; border-radius: 16px; object-fit: cover; }
     .recipe-box { padding: 28px; border: 1px solid #e6ebe2; border-radius: 22px; background: white; }
     .recipe-box h3 { margin: 0 0 12px; color: var(--deep); font-family: Georgia, serif; font-size: 1.35rem; }
     .recipe-box h3:not(:first-child) { margin-top: 25px; }
@@ -57,7 +59,7 @@
     li { padding: 3px 0; }
     .steps { padding-top: 20px; margin-top: 20px; border-top: 1px solid #e8ece5; }
     footer { padding: 25px 24px; color: #dce8de; background: var(--deep); text-align: center; font-size: .9rem; }
-    @media (max-width: 760px) { .nav { padding: 12px 18px; } .links { gap: 14px; font-size: .82rem; } .hero { padding: 42px 20px; grid-template-columns: 1fr; gap: 26px; } .hero-image,.hero-image img { min-height: 270px; } .gallery,.recipe { padding: 48px 20px; } .grid { grid-template-columns: repeat(2,1fr); gap: 14px; } .card img { height: 175px; } .recipe-item { grid-template-columns: 1fr; gap: 18px; } #receitas .recipe-intro { top: 68px; padding: 10px 12px; } }
+    @media (max-width: 760px) { .nav { padding: 12px 18px; } .links { gap: 14px; font-size: .82rem; } .hero { padding: 42px 20px; grid-template-columns: 1fr; gap: 26px; } .hero-image,.hero-image img { min-height: 270px; } .gallery,.recipe { padding: 48px 20px; } .grid { grid-template-columns: repeat(2,1fr); gap: 14px; } .card img { height: 175px; } .recipe-item { grid-template-columns: 1fr; gap: 18px; } }
     @media (max-width: 480px) { .brand { font-size: 1rem; } .links { gap: 11px; } .links a { font-size: .77rem; } .hero { padding-top: 34px; } .grid { grid-template-columns: 1fr; } .card img { height: 220px; } .section-head { display: block; } .recipe-box { padding: 22px; } }
   </style>
 </head>
@@ -84,17 +86,82 @@
     <section class="gallery" id="galeria">
       <div class="section-inner">
         <div class="section-head"><div><span class="eyebrow">Inspire-se</span><h2>Receitas para saborear</h2><p>Escolha um prato e descubra como preparar.</p></div></div>
+        <h3 class="category-label">Salgadas</h3>
+        <div class="grid">
+          <a class="card" href="#succotash"><img src="img%20succotash2.jpg" alt="Succotash de milho, feijão-de-lima, tomate e vegetais" loading="lazy"><div class="card-body"><span class="tag">Prato leve · 25 min</span><h3>Succotash de vegetais</h3><p>Milho, feijão e legumes em uma combinação cheia de cor.</p></div></a>
+          <a class="card" href="#samosas"><img src="Samosa.jpg" alt="Samosas assadas douradas" loading="lazy"><div class="card-body"><span class="tag">Forno · 25 min</span><h3>Samosas de forno</h3><p>Massa integral assada com recheio à sua escolha.</p></div></a>
+          <a class="card" href="#rocambole"><img src="https://s2-receitas.glbimg.com/4IqDFwEdVhbMm0qcztAstiwqBGQ%3D/0x0%3A1200x650/810x0/smart/filters:strip_icc%28%29/s.glbimg.com/po/rc/media/2015/12/14/16_28_22_668_rocambole_lentilha.png" alt="Rocambole de lentilha e quinoa fatiado com recheio de legumes" loading="lazy"><div class="card-body"><span class="tag">Prato principal · 1h 15</span><h3>Rocambole de lentilha e quinoa</h3><p>Assado nutritivo com ervas e um toque de molho de tomate.</p></div></a>
+          <a class="card" href="#torta-cogumelos"><img src="https://cloudfront-ap-southeast-2.images.arcpublishing.com/nzme/TQGW73N7LDIUVAW66SWRSGNKUQ.jpg" alt="Torta vegetariana de cogumelos e couve com cobertura de purê" loading="lazy"><div class="card-body"><span class="tag">Prato principal · 1h 20</span><h3>Torta de cogumelos com purê de couve</h3><p>Cogumelos ao molho, cobertos com purê cremoso de couve e alho.</p></div></a>
+          <a class="card" href="#moqueca-banana"><img src="https://www.receiteria.com.br/wp-content/uploads/moqueca-de-banana-da-terra-00.jpg" alt="Moqueca de banana-da-terra com molho de coco e pimentões" loading="lazy"><div class="card-body"><span class="tag">Prato principal · 45 min</span><h3>Moqueca de banana-da-terra com algas</h3><p>Banana-da-terra ao leite de coco, dendê e alga marinha.</p></div></a>
+          <a class="card" href="#tartare-melancia"><img src="tartare4.jpg" alt="Tartare de melancia grelhada com ervas frescas" loading="lazy"><div class="card-body"><span class="tag">Entrada · 2h 45</span><h3>Tartare de melancia assada</h3><p>Melancia assada e defumada, temperada e servida com quinoa.</p></div></a>
+        </div>
+        <h3 class="category-label">Doces</h3>
         <div class="grid">
           <a class="card" href="#tarte"><img src="https://www.kingarthurbaking.com/sites/default/files/blog-images/2016/09/French-Apple-Tart_6.jpg" alt="Torta de maçã dourada" loading="lazy"><div class="card-body"><span class="tag">Sobremesa · 1h 20</span><h3>Torta de maçã francesa</h3><p>Massa delicada, maçãs frescas e um toque de damasco.</p></div></a>
-          <a class="card" href="#succotash"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Salada colorida de vegetais frescos" loading="lazy"><div class="card-body"><span class="tag">Prato leve · 25 min</span><h3>Succotash de vegetais</h3><p>Milho, feijão e legumes em uma combinação cheia de cor.</p></div></a>
-          <a class="card" href="#receitas"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Tigela de vegetais verdes frescos" loading="lazy"><div class="card-body"><span class="tag">Da estação · 15 min</span><h3>Verde no prato</h3><p>Folhas frescas e ingredientes simples para inspirar seu dia.</p></div></a>
+          <a class="card" href="#pudim-chia"><img src="pudim%20de%20chia%20com%20mo.png" alt="Pudim de chia com morangos frescos" loading="lazy"><div class="card-body"><span class="tag">Sobremesa · 4h 10</span><h3>Pudim de chia com morango</h3><p>Uma sobremesa cremosa, leve e preparada com poucos ingredientes.</p></div></a>
+          <a class="card" href="#daifuku"><img src="https://www.imuraya-group.com/english/products/azuki/images/glossary_img05.jpg" alt="Daifuku japonês recheado com pasta doce de feijão azuki" loading="lazy"><div class="card-body"><span class="tag">Doce japonês · 1h</span><h3>Daifuku tradicional</h3><p>Massa macia de arroz glutinoso recheada com anko de azuki.</p></div></a>
+          <a class="card" href="#doce-abobora"><img src="https://viverdebrigadeiro.com.br/images/_opt/doce-de-abobora-com-coco-4dda4c64-630.jpg" alt="Doce brasileiro de abóbora com coco" loading="lazy"><div class="card-body"><span class="tag">Sobremesa · 1h 10</span><h3>Doce de abóbora com coco</h3><p>Abóbora cozida lentamente com especiarias e coco ralado.</p></div></a>
+          <a class="card" href="#sorvete-vegano"><img src="https://www.biospajz.rs/uploads/store/recipes/images/veganski-sladoled-od-banane-i-kokosa-234.webp" alt="Sorvete vegano cremoso de banana e coco" loading="lazy"><div class="card-body"><span class="tag">Sobremesa · preparo antecipado</span><h3>Sorvete vegano de banana e coco</h3><p>Gelado cremoso feito com banana congelada e leite de coco.</p></div></a>
+          <a class="card" href="#merengue-aquafaba"><img src="https://www.giallozafferano.fr/images/104-10469/meringues-veganes_1200x800.jpg" alt="Merengues veganos leves e crocantes" loading="lazy"><div class="card-body"><span class="tag">Sobremesa · 2h</span><h3>Merengue de aquafaba</h3><p>Suspiros veganos feitos com a água do grão-de-bico.</p></div></a>
         </div>
       </div>
     </section>
     <section class="recipe" id="receitas">
       <div class="section-inner recipe-layout">
+        <h2 class="recipe-group-title">Receitas salgadas</h2>
         <article class="recipe-item">
-        <div class="recipe-intro"><span class="eyebrow">Mãos à massa</span><h2 id="tarte">Torta de maçã francesa</h2><p>Uma sobremesa clássica, bonita e perfeita para dividir. Separe os ingredientes e aproveite o preparo sem pressa.</p><p><strong>Preparo:</strong> 30 min &nbsp;·&nbsp; <strong>Forno:</strong> 45–60 min</p></div>
+        <div class="recipe-intro"><span class="eyebrow">Colorido e nutritivo</span><h2 id="succotash">Succotash de vegetais</h2><img class="recipe-photo" src="img%20succotash2.jpg" alt="Succotash de milho, feijão-de-lima, tomate e vegetais" loading="lazy"><p>Um acompanhamento rápido que também funciona como refeição leve. Fica pronto em cerca de 25 minutos.</p></div>
+        <div class="recipe-box">
+          <h3>Ingredientes</h3>
+          <ul><li>2 xícaras de milho verde</li><li>1 xícara de feijão-de-lima cozido ou feijão-branco</li><li>1 pimentão vermelho picado</li><li>1 abobrinha em cubos</li><li>1 cebola pequena e 2 dentes de alho picados</li><li>2 colheres de sopa de azeite</li><li>Sal, pimenta e ervas frescas a gosto</li></ul>
+          <div class="steps"><h3>Como preparar</h3><ol><li>Aqueça o azeite em uma frigideira e refogue a cebola até ficar macia.</li><li>Junte o alho e o pimentão. Refogue por alguns minutos e acrescente a abobrinha.</li><li>Quando a abobrinha estiver macia, adicione o milho e o feijão cozido.</li><li>Tempere com sal e pimenta, aqueça bem e finalize com salsinha ou tomilho fresco.</li></ol></div>
+        </div>
+        </article>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Massa caseira</span><h2 id="samosas">Samosas de forno</h2><img class="recipe-photo" src="Samosa.jpg" alt="Samosas triangulares assadas até dourar" loading="lazy"><p>Massa integral assada e recheio à sua escolha: uma opção prática para preparar e congelar.</p><p><strong>Forno:</strong> aproximadamente 25 min, até dourar.</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>500 g de farinha integral</li><li>2 pacotinhos ou sachês de fermento para pão (tipo Fermix)</li><li>300 ml de água em temperatura ambiente</li><li>100 ml de óleo</li><li>Sal a gosto</li><li>Recheio à escolha: palmito, brócolis, batata cozida com cebolinha, berinjela ou outro de sua preferência</li><li>Gergelim ou aveia para decorar (opcional)</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Misture a farinha, o fermento, a água, o óleo e o sal em uma bacia.</li><li>Cubra com um pano e deixe a massa crescer.</li><li>Enquanto isso, prepare o recheio escolhido.</li><li>Modele a massa em formato de esfirras ou pastéis. Se quiser, grude gergelim ou aveia na massa.</li><li>Recheie e feche muito bem as pontas, pressionando com um garfo.</li><li>Asse em forno quente por aproximadamente 25 minutos, ou até dourar.</li></ol><p><strong>Dica:</strong> depois de assadas, as samosas podem ser congeladas.</p></div>
+          </div>
+        </article>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Prato principal</span><h2 id="rocambole">Rocambole assado de lentilha e quinoa</h2><img class="recipe-photo" src="https://s2-receitas.glbimg.com/4IqDFwEdVhbMm0qcztAstiwqBGQ%3D/0x0%3A1200x650/810x0/smart/filters:strip_icc%28%29/s.glbimg.com/po/rc/media/2015/12/14/16_28_22_668_rocambole_lentilha.png" alt="Rocambole de lentilha e quinoa fatiado com recheio de legumes" loading="lazy"><p>Um rocambole vegetariano bem temperado, com casquinha dourada e interior macio. Sirva fatiado com salada ou legumes assados.</p><p><strong>Preparo:</strong> 25 min &nbsp;·&nbsp; <strong>Forno:</strong> 40–45 min</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>1 xícara de lentilha seca, lavada</li><li>½ xícara de quinoa, lavada</li><li>1 cebola pequena picada</li><li>2 dentes de alho picados</li><li>1 cenoura média ralada</li><li>½ xícara de aveia em flocos finos ou farinha de aveia</li><li>2 colheres de sopa de linhaça moída misturadas com 5 colheres de sopa de água</li><li>2 colheres de sopa de azeite</li><li>1 colher de sopa de molho de soja (opcional)</li><li>1 colher de chá de páprica, sal, pimenta-do-reino e ervas a gosto</li><li>½ xícara de molho de tomate para cobrir</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Cozinhe a lentilha em água até ficar macia, mas sem desmanchar, por cerca de 20 minutos. Escorra bem.</li><li>Cozinhe a quinoa em 1 xícara de água por cerca de 15 minutos, até a água secar. Deixe amornar.</li><li>Preaqueça o forno a 200 °C. Refogue a cebola e o alho no azeite; junte a cenoura e cozinhe por 2 minutos.</li><li>Amasse levemente metade da lentilha. Misture com o restante da lentilha, a quinoa, o refogado, a aveia, a linhaça hidratada, o molho de soja e os temperos.</li><li>Espere 5 minutos para a aveia absorver a umidade. Se a mistura ainda estiver muito úmida para modelar, acrescente mais aveia aos poucos.</li><li>Coloque a mistura sobre papel-manteiga e modele um rocambole firme. Transfira para uma assadeira, cubra com o molho de tomate e asse por 40 a 45 minutos, até dourar e firmar.</li><li>Deixe descansar por 10 minutos antes de fatiar, para manter o formato.</li></ol><p><strong>Dica:</strong> acrescente salsinha picada ou castanhas trituradas à mistura para variar a textura.</p></div>
+          </div>
+        </article>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Conforto de forno</span><h2 id="torta-cogumelos">Torta de cogumelos com molho e purê de couve com alho</h2><img class="recipe-photo" src="https://cloudfront-ap-southeast-2.images.arcpublishing.com/nzme/TQGW73N7LDIUVAW66SWRSGNKUQ.jpg" alt="Torta vegetariana de cogumelos e couve com cobertura de purê" loading="lazy"><p>Recheio de cogumelos bem dourados em um molho saboroso, coberto por purê macio de batata e couve. Uma refeição completa para compartilhar.</p><p><strong>Preparo:</strong> 30 min &nbsp;·&nbsp; <strong>Forno:</strong> 25–30 min</p></div>
+          <div class="recipe-box">
+            <h3>Para o purê</h3>
+            <ul><li>700 g de batatas descascadas e cortadas em cubos</li><li>3 xícaras de couve fatiada bem fina</li><li>2 dentes de alho picados</li><li>2 colheres de sopa de manteiga ou azeite</li><li>⅓ xícara de leite (pode ser vegetal sem açúcar)</li><li>Sal e pimenta-do-reino a gosto</li></ul>
+            <h3>Para o recheio e o molho</h3>
+            <ul><li>500 g de cogumelos variados fatiados</li><li>1 cebola média picada</li><li>2 dentes de alho picados</li><li>1 cenoura em cubinhos</li><li>2 colheres de sopa de azeite</li><li>1 colher de sopa de extrato de tomate</li><li>1 colher de sopa de farinha de trigo</li><li>1 xícara de caldo de legumes</li><li>½ xícara de ervilhas (opcional)</li><li>1 colher de chá de tomilho, sal e pimenta a gosto</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Preaqueça o forno a 200 °C. Cozinhe as batatas em água com sal até ficarem macias, por cerca de 15 a 20 minutos.</li><li>Enquanto isso, aqueça metade do azeite em uma frigideira grande. Doure os cogumelos em etapas, sem encher demais a frigideira, e reserve.</li><li>Na mesma frigideira, aqueça o restante do azeite e refogue a cebola e a cenoura por 5 minutos. Junte o alho, o extrato de tomate e o tomilho.</li><li>Polvilhe a farinha e mexa por 1 minuto. Acrescente o caldo aos poucos, mexendo até formar um molho encorpado. Volte os cogumelos à panela, adicione as ervilhas e ajuste o sal e a pimenta.</li><li>Escorra as batatas e amasse. Em outra panela, doure o alho na manteiga ou no azeite, junte a couve e refogue até murchar. Misture ao purê com o leite e tempere.</li><li>Espalhe o recheio com molho em uma assadeira. Cubra com o purê de couve e alho, nivelando com uma colher.</li><li>Asse por 25 a 30 minutos, até borbulhar nas bordas e dourar levemente por cima. Deixe descansar por 5 minutos antes de servir.</li></ol></div>
+          </div>
+        </article>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Sabor brasileiro</span><h2 id="moqueca-banana">Moqueca de banana-da-terra com algas</h2><img class="recipe-photo" src="https://www.receiteria.com.br/wp-content/uploads/moqueca-de-banana-da-terra-00.jpg" alt="Moqueca de banana-da-terra em molho dourado de coco e dendê" loading="lazy"><p>Uma moqueca vegana aromática: banana-da-terra, leite de coco e azeite de dendê com alga marinha para trazer notas do mar.</p><p><strong>Preparo:</strong> 20 min &nbsp;·&nbsp; <strong>Cozimento:</strong> 25 min</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>4 bananas-da-terra maduras, mas firmes, em rodelas grossas</li><li>1 folha de alga nori bem picada ou 1 colher de sopa de alga nori em flocos</li><li>1 cebola grande fatiada</li><li>2 tomates maduros em rodelas</li><li>1 pimentão vermelho e 1 amarelo em tiras</li><li>2 dentes de alho picados</li><li>400 ml de leite de coco</li><li>2 colheres de sopa de azeite de dendê</li><li>Suco de ½ limão</li><li>2 colheres de sopa de azeite</li><li>Coentro picado, sal e pimenta-do-reino a gosto</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Tempere as rodelas de banana com o suco de limão, a alga nori, sal e pimenta. Deixe descansar por 15 minutos.</li><li>Aqueça o azeite em uma panela larga. Refogue a cebola por 2 minutos e junte o alho.</li><li>Faça camadas com metade dos tomates e dos pimentões, distribua as bananas temperadas e cubra com o restante dos vegetais.</li><li>Regue com o leite de coco e o azeite de dendê. Tampe e cozinhe em fogo baixo por 20 a 25 minutos, até a banana ficar macia sem desmanchar.</li><li>Prove e ajuste o sal. Finalize com coentro picado e sirva com arroz e farofa.</li></ol><p><strong>Dica:</strong> se usar kombu no lugar da nori, retire a folha antes de servir e pique-a apenas se desejar comer junto com o prato.</p></div>
+          </div>
+        </article>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Entrada defumada</span><h2 id="tartare-melancia">Tartare de melancia assada</h2><img class="recipe-photo" src="tartare4.jpg" alt="Tartare de melancia grelhada com ervas frescas" loading="lazy"><p>Uma entrada vegetal com melancia assada, páprica defumada e vinagre, montada sobre quinoa temperada e finalizada com amêndoas.</p><p><strong>Preparo:</strong> 25 min &nbsp;·&nbsp; <strong>Forno:</strong> 25 min &nbsp;·&nbsp; <strong>Geladeira:</strong> 2h</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>1 kg de melancia sem casca, cortada em fatias grossas sem sementes</li><li>3 colheres de sopa de azeite, divididas</li><li>1 colher de chá de páprica defumada</li><li>2 cebolinhas picadas</li><li>2 colheres de sopa de vinagre de xerez ou de vinho tinto</li><li>1 dente de alho amassado</li><li>½ xícara de quinoa</li><li>½ colher de chá de cominho em pó</li><li>¼ de colher de chá de canela em pó</li><li>Sal e pimenta-do-reino a gosto</li><li>2 colheres de sopa de amêndoas tostadas e picadas</li><li>Raspas de 1 laranja para finalizar (opcional)</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Preaqueça o forno a 220 °C. Disponha as fatias de melancia em uma assadeira forrada, pincele com 1 colher de sopa de azeite e polvilhe metade da páprica e um pouco de pimenta.</li><li>Asse por 20 a 25 minutos, virando na metade do tempo, até a melancia perder parte da água e ganhar pontos dourados. Deixe esfriar completamente sobre uma grade e escorra o líquido acumulado.</li><li>Corte a melancia em cubinhos e misture com a cebolinha. À parte, combine o vinagre, o alho, o restante da páprica e 1 colher de sopa de azeite. Misture à melancia e leve à geladeira por pelo menos 2 horas.</li><li>Cozinhe a quinoa conforme as instruções da embalagem. Solte os grãos com um garfo e tempere com o cominho, a canela, a colher restante de azeite, sal e pimenta. Deixe esfriar.</li><li>Para servir, coloque a quinoa em um aro culinário ou em pequenas porções no prato e cubra com a melancia escorrida. Finalize com as amêndoas e as raspas de laranja.</li></ol><p><strong>Dica:</strong> se não tiver aro, monte em uma tigela pequena e desenforme com cuidado.</p></div>
+          </div>
+        </article>
+        <h2 class="recipe-group-title">Receitas doces</h2>
+        <article class="recipe-item">
+        <div class="recipe-intro"><span class="eyebrow">Mãos à massa</span><h2 id="tarte">Torta de maçã francesa</h2><img class="recipe-photo" src="https://www.kingarthurbaking.com/sites/default/files/blog-images/2016/09/French-Apple-Tart_6.jpg" alt="Torta francesa de maçã com fatias douradas" loading="lazy"><p>Uma sobremesa clássica, bonita e perfeita para dividir. Separe os ingredientes e aproveite o preparo sem pressa.</p><p><strong>Preparo:</strong> 30 min &nbsp;·&nbsp; <strong>Forno:</strong> 45–60 min</p></div>
         <div class="recipe-box">
           <h3>Para a massa</h3>
           <ul><li>2 xícaras de farinha de trigo</li><li>½ colher de chá de sal</li><li>1 colher de sopa de açúcar</li><li>12 colheres de sopa de manteiga sem sal, gelada e em cubos</li><li>½ xícara de água gelada</li></ul>
@@ -104,19 +171,52 @@
         </div>
         </article>
         <article class="recipe-item">
-        <div class="recipe-intro"><span class="eyebrow">Colorido e nutritivo</span><h2 id="succotash">Succotash de vegetais</h2><p>Um acompanhamento rápido que também funciona como refeição leve. Fica pronto em cerca de 25 minutos.</p></div>
-        <div class="recipe-box"><h3>Ingredientes</h3><ul><li>2 xícaras de milho verde</li><li>1 xícara de feijão-de-lima cozido ou feijão-branco</li><li>1 pimentão vermelho picado</li><li>1 abobrinha em cubos</li><li>1 cebola pequena e 2 dentes de alho picados</li><li>2 colheres de sopa de azeite</li><li>Sal, pimenta e ervas frescas a gosto</li></ul><div class="steps"><h3>Como preparar</h3><ol><li>Aqueça o azeite em uma frigideira e refogue a cebola até ficar macia.</li><li>Junte o alho e o pimentão. Refogue por alguns minutos e acrescente a abobrinha.</li><li>Quando a abobrinha estiver macia, adicione o milho e o feijão cozido.</li><li>Tempere com sal e pimenta, aqueça bem e finalize com salsinha ou tomilho fresco.</li></ol></div></div>
+          <div class="recipe-intro"><span class="eyebrow">Doce e refrescante</span><h2 id="pudim-chia">Pudim de chia com morango</h2><img class="recipe-photo" src="pudim%20de%20chia%20com%20mo.png" alt="Pudim de chia com morangos frescos" loading="lazy"><p>Uma sobremesa cremosa e prática, que fica pronta enquanto descansa na geladeira. Sirva no café da manhã ou como um docinho leve.</p><p><strong>Preparo:</strong> 10 min &nbsp;·&nbsp; <strong>Geladeira:</strong> pelo menos 4h</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>¼ de xícara de sementes de chia</li><li>1 xícara de leite ou bebida vegetal</li><li>1 a 2 colheres de sopa de mel, maple syrup ou outro adoçante</li><li>½ colher de chá de extrato de baunilha (opcional)</li><li>1 xícara de morangos frescos picados</li><li>Morangos fatiados e folhas de hortelã para servir (opcional)</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Em uma tigela ou pote com tampa, misture a chia, o leite, o adoçante e a baunilha.</li><li>Aguarde 5 minutos e mexa novamente para desfazer os grumos. Tampe e leve à geladeira por pelo menos 4 horas, ou de um dia para o outro, até engrossar.</li><li>Amasse metade dos morangos com um garfo e misture ao pudim. Distribua em copos ou potinhos.</li><li>Finalize com o restante dos morangos e, se desejar, hortelã. Sirva gelado.</li></ol><p><strong>Dica:</strong> se o pudim ficar muito espesso, misture um pouco mais de leite antes de servir.</p></div>
+          </div>
         </article>
-      </div>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Doce japonês</span><h2 id="daifuku">Daifuku tradicional</h2><img class="recipe-photo" src="https://www.imuraya-group.com/english/products/azuki/images/glossary_img05.jpg" alt="Daifuku de massa branca com recheio de anko de azuki" loading="lazy"><p>Wagashi clássico feito com uma massa macia de arroz glutinoso envolvendo anko, a pasta doce de feijão azuki.</p><p><strong>Preparo:</strong> 35 min &nbsp;·&nbsp; <strong>Descanso:</strong> 20 min</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>200 g de farinha de arroz glutinoso (shiratamako ou mochiko)</li><li>60 g de açúcar</li><li>180 ml de água</li><li>240 g de anko (pasta doce de feijão azuki), dividido em 8 porções</li><li>Amido de batata ou amido de milho para polvilhar e modelar</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Com as mãos levemente polvilhadas com amido, faça 8 bolinhas de anko e reserve.</li><li>Misture a farinha de arroz glutinoso e o açúcar em uma tigela resistente ao calor. Adicione a água aos poucos, mexendo até obter uma massa lisa.</li><li>Cubra a tigela com um pano limpo e úmido. Cozinhe a massa no vapor por cerca de 20 minutos, até ficar translúcida e elástica.</li><li>Polvilhe generosamente uma bancada com amido. Com uma espátula úmida, transfira a massa ainda quente para a bancada e polvilhe mais amido por cima.</li><li>Divida a massa em 8 porções. Achate cada porção em um disco, mantendo o centro ligeiramente mais espesso.</li><li>Coloque uma bolinha de anko no centro de cada disco. Junte as bordas da massa sobre o recheio e aperte para selar. Vire com a emenda para baixo e modele delicadamente.</li><li>Retire o excesso de amido com um pincel seco e sirva no mesmo dia, em temperatura ambiente.</li></ol><p><strong>Dica:</strong> mantenha as mãos e os utensílios polvilhados para a massa não grudar. O daifuku fica mais macio recém-preparado.</p></div>
+          </div>
+        </article>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Doce brasileiro</span><h2 id="doce-abobora">Doce de abóbora com coco</h2><img class="recipe-photo" src="https://viverdebrigadeiro.com.br/images/_opt/doce-de-abobora-com-coco-4dda4c64-630.jpg" alt="Doce cremoso de abóbora com coco ralado" loading="lazy"><p>Doce caseiro de panela, perfumado com canela e cravo e finalizado com coco. Fica ótimo servido gelado ou em temperatura ambiente.</p><p><strong>Preparo:</strong> 15 min &nbsp;·&nbsp; <strong>Cozimento:</strong> 45–55 min</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>1 kg de abóbora cabotiá ou de pescoço, sem casca e em cubos</li><li>400 g de açúcar</li><li>½ xícara de água</li><li>1 pau de canela</li><li>4 cravos-da-índia</li><li>100 g de coco ralado fresco ou seco sem açúcar</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Coloque a abóbora, o açúcar, a água, a canela e os cravos em uma panela de fundo grosso.</li><li>Tampe e cozinhe em fogo baixo por 25 a 30 minutos, mexendo de vez em quando, até a abóbora ficar bem macia e soltar líquido.</li><li>Retire a tampa e a canela. Amasse parte dos pedaços com uma colher, deixando alguns inteiros para dar textura.</li><li>Junte o coco e cozinhe sem tampa por mais 15 a 25 minutos, mexendo com frequência, até o doce ficar encorpado e brilhante.</li><li>Retire os cravos, deixe esfriar e sirva. Guarde em pote fechado na geladeira.</li></ol><p><strong>Dica:</strong> para um doce menos cremoso e com pedaços inteiros, mexa delicadamente e reduza o tempo depois de acrescentar o coco.</p></div>
+          </div>
+        </article>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Doce gelado</span><h2 id="sorvete-vegano">Sorvete vegano de banana e coco</h2><img class="recipe-photo" src="https://www.biospajz.rs/uploads/store/recipes/images/veganski-sladoled-od-banane-i-kokosa-234.webp" alt="Sorvete vegano de banana e coco" loading="lazy"><p>Cremoso e fácil de fazer, sem leite ou ovos. A banana congelada dá corpo ao sorvete, e o leite de coco deixa o sabor ainda mais especial.</p><p><strong>Preparo:</strong> 10 min &nbsp;·&nbsp; <strong>Congelador:</strong> 4h para as bananas + 3h para firmar (opcional)</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>4 bananas maduras, descascadas, fatiadas e congeladas</li><li>½ xícara de leite de coco bem cremoso</li><li>1 a 2 colheres de sopa de xarope de bordo ou açúcar (opcional)</li><li>½ colher de chá de extrato de baunilha (opcional)</li><li>1 pitada de sal</li><li>Coco tostado ou castanhas picadas para servir (opcional)</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Congele as rodelas de banana em uma só camada por pelo menos 4 horas, até ficarem firmes.</li><li>Coloque a banana congelada no processador. Pulse até quebrar em pedaços pequenos e, em seguida, bata até começar a ficar cremosa.</li><li>Adicione o leite de coco aos poucos, apenas o suficiente para ajudar a bater. Junte o adoçante, a baunilha e o sal, se for usar, e processe até ficar homogêneo.</li><li>Sirva imediatamente como sorvete macio ou transfira para um recipiente com tampa e leve ao congelador por cerca de 3 horas para firmar.</li><li>Se congelar por mais tempo, deixe o sorvete descansar alguns minutos em temperatura ambiente antes de servir. Finalize com coco tostado ou castanhas.</li></ol><p><strong>Dica:</strong> use bananas bem maduras para um sorvete naturalmente mais doce.</p></div>
+          </div>
+        </article>
+        <article class="recipe-item">
+          <div class="recipe-intro"><span class="eyebrow">Doce vegano</span><h2 id="merengue-aquafaba">Merengue de aquafaba</h2><img class="recipe-photo" src="https://www.giallozafferano.fr/images/104-10469/meringues-veganes_1200x800.jpg" alt="Suspiros veganos de aquafaba assados" loading="lazy"><p>Suspiros leves e crocantes, feitos sem ovos: a aquafaba, líquido do grão-de-bico, forma uma espuma firme quando batida.</p><p><strong>Preparo:</strong> 20 min &nbsp;·&nbsp; <strong>Forno:</strong> 1h30 + resfriamento</p></div>
+          <div class="recipe-box">
+            <h3>Ingredientes</h3>
+            <ul><li>120 ml de aquafaba, de preferência sem sal</li><li>200 g de açúcar refinado</li><li>¼ de colher de chá de cremor tártaro ou 1 colher de chá de suco de limão</li><li>½ colher de chá de extrato de baunilha (opcional)</li></ul>
+            <div class="steps"><h3>Como preparar</h3><ol><li>Preaqueça o forno a 100 °C e forre uma assadeira com papel-manteiga. Use uma tigela e batedores bem limpos e sem gordura.</li><li>Bata a aquafaba com o cremor tártaro ou o limão até ficar branca e espumosa.</li><li>Adicione o açúcar aos poucos, uma colher por vez, batendo bem entre cada adição. Continue até formar picos firmes e a mistura ficar brilhante. Incorpore a baunilha, se usar.</li><li>Com duas colheres ou um saco de confeitar, faça pequenos suspiros na assadeira, deixando espaço entre eles.</li><li>Asse por cerca de 1h30, até ficarem secos e soltarem facilmente do papel. Desligue o forno e deixe os merengues esfriarem completamente lá dentro, com a porta entreaberta.</li><li>Guarde em recipiente hermético depois de frios, para não absorverem umidade.</li></ol><p><strong>Dica:</strong> se a aquafaba estiver muito líquida, reduza-a em uma panela até ficar mais concentrada e deixe esfriar completamente antes de bater.</p></div>
+          </div>
+        </article>
+            </div>
     </section>
     <section class="gallery" id="sobre"><div class="section-inner"><span class="eyebrow">Sobre o Verde à Mesa</span><h2>Comida boa, sem complicação.</h2><p>Um cantinho para celebrar ingredientes frescos, receitas acessíveis e o prazer de cozinhar em casa.</p></div></section>
   </main>
   <footer>Feito com carinho e ingredientes frescos 🌱</footer>
-</body> 
+</body>
 </html>
-
-
-
 
 
 
